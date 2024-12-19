@@ -87,7 +87,33 @@ void energia(){
 }
 
 void area(){
+    int opcao;
+    double area;
 
+    printf("\nEscolha uma das opcoes abaixo:\n");
+    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
+    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+
+    printf("Opcao: ");
+    scanf("%d", &opcao);
+
+    printf("\nArea a ser convertida: ");
+    scanf("%lf", &area);
+
+    switch (opcao)
+    {
+    case 1:
+        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+        break;
+
+    case 2:
+        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+        break;
+
+    default:
+        printf("\nOpcao invalida.\n");
+        break;
+    }
 }
 
 void tempo(){
