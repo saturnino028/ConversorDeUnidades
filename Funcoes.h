@@ -1,17 +1,21 @@
-void comprimento();
+#ifndef FUNCOES_H
+#define FUNCOES_H
 
-void massa();
+// Bibliotecas padrão
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-void volume();
-
+// Declarações das funções de conversão
+void armazenamento();
 void temperatura();
-
+void comprimento();
 void velocidade();
-
 void energia();
-
+void volume();
+void tempo();
+void massa();
 void area();
 
-void tempo();
 
-void armazenamento();
+#endif // FUNCOES_H
