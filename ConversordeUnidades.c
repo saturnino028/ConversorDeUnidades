@@ -75,7 +75,95 @@ void volume(){
 }
 
 void temperatura(){
+    int opcaoOrigem, opcaoDestino;
+    double temp;
+    printf ("\nConversor de temperatura\n");
+    printf ("Digite a temperatura:\n");
+    scanf ("%lf", &temp);
 
+    printf ("Essa temperatura esta em qual unidade?\n");
+    printf ("1 - Celsius\n");
+    printf ("2 - Fahrenheit\n");
+    printf ("3 - Kelvin\n");
+    scanf ("%d", &opcaoOrigem);
+
+    printf ("Agora, escolha para qual tipo de temperatura voce deseja converter: \n");
+    printf ("1 - Celsius\n");
+    printf ("2 - Fahrenheit\n");
+    printf ("3 - Kelvin\n");
+    scanf ("%d", &opcaoDestino);
+
+    switch (opcaoOrigem)
+    {
+    case 1:
+        switch (opcaoDestino){
+            case 1: //Celsius para Celsius
+            printf("A conversao de Celsius para Celsius eh:\n %.2f\n", temp);
+            break;
+
+            case 2: //Celsius para Fahrenheit
+            temp = (temp * 1.8) + 32;
+            printf("A conversao de Celsius para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Celsius para Kelvin
+            temp = temp + 273.15;
+            printf("A conversao de Celsius para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+        break;
+
+    case 2:
+        switch (opcaoDestino){
+            case 1: //Fahrenheit para Celsius
+            temp = (temp - 32) * 5/9;
+            printf("A conversao de Fahrenheit para Celsius eh:\n %.2f\n", temp);
+
+            case 2: //Fahrenheit para Fahrenheit
+            printf("A conversao de Fahrenheit para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Fahrenheit para Kelvin
+            temp = (temp - 32) * 5/9 + 273.15;
+            printf("A conversao de Fahrenheit para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+    break;  
+
+    case 3:
+        switch (opcaoDestino){
+            case 1: //Kelvin para Celsius
+            temp = temp - 273.15;
+            printf("A conversao de Kelvin para Celsius eh:\n %.2f\n", temp);
+            break;
+
+            case 2: //Kelvin para Fahrenheit
+            temp = (temp - 273.15) * 1.8 + 32;
+            printf("A conversao de Kelvin para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Kelvin para Kelvin
+            printf("A conversao de Kelvin para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+    break;
+    
+    default:
+        printf("Opçao invalida");
+        break;
+    }
 }
 
 void velocidade(){
