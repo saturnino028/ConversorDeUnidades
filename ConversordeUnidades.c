@@ -69,7 +69,7 @@ int main() {
         }
         printf("Deseja realizar outra conversao? (1 - Sim, 0 - Nao): ");
         scanf("%d", &continuar);
-        
+
     }while(continuar);
     
     printf("\nPrograma encerado!\n");
@@ -136,23 +136,23 @@ void volume() {
     switch (opcao1) {
         case 1:  // Litros
             if (opcao2 == 2) { // Para mililitros
-                printf("Resultado: %.2f ML\n", valor * 1000);
+                printf("%.2f L convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("Resultado: %.2f M3\n", valor / 1000);
+                printf("%.2f L convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000);
             }
             break;
         case 2:  // Mililitros
             if (opcao2 == 1) { // Para litros
-                printf("Resultado: %.2f L\n", valor / 1000);
+                printf("%.2f ML convertido para litros resulta em %.2f L\n", valor, valor / 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("Resultado: %.2f M3\n", valor / 1000000);
+                printf("%.2f ML convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000000);
             }
             break;
         case 3:  // Metros cúbicos
             if (opcao2 == 1) { // Para litros
-                printf("Resultado: %.2f L\n", valor * 1000);
+                printf("%.2f M3 convertido para litros resulta em %.2f L\n", valor, valor * 1000);
             } else if (opcao2 == 2) { // Para mililitros
-                printf("Resultado: %.2f ML\n", valor * 1000000);
+                printf("%.2f M3 convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000000);
             }
             break;
     }
@@ -168,6 +168,33 @@ void energia() {
 }
 
 void area() {
+    int opcao;
+    float area;
+
+    printf("\nEscolha uma das opcoes abaixo:\n");
+    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
+    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+
+    printf("Opcao: ");
+    scanf("%d", &opcao);
+
+    printf("\nArea a ser convertida: ");
+    scanf("%f", &area);
+
+    switch (opcao)
+    {
+    case 1:
+        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+        break;
+
+    case 2:
+        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+        break;
+
+    default:
+        printf("\nOpcao invalida.\n");
+        break;
+    }
 }
 
 void tempo() {
