@@ -15,12 +15,13 @@ int main(){
         "7 - Tempo\n",
         "8 - Massa\n",
         "9 - Area\n",
+        "0 - Sair\n"
         };
 
     printf("Ola, usuario!\n");
     printf("Qual conversao voce deseja fazer?\n");
 
-    for(int i = 0; i<9; i++){
+    for(int i = 0; i<10; i++){
         printf("%s", Opcoes[i]);
     }
 
