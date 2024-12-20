@@ -64,7 +64,25 @@ int main(){
 }
 
 void comprimento(){
+    int opcao;
+    float valor;
+    // Menu de opções
+    printf("*********************************\n");
+    printf("* 1 - Metro para centimetro     *\n");
+    printf("* 2 - Metro para milimetro      *\n");
+    printf("* 3 - Centimetro para metro     *\n");
+    printf("* 4 - Centimetro para milimetro *\n");
+    printf("* 5 - Milimetro para metro      *\n");
+    printf("* 6 - Milimetro para centimetro *\n");
+    printf("*********************************\n");
 
+    // Solicita ao usuário para escolher a opção
+    printf("\nEscolha a opcao desejada: ");
+    scanf("%d", &opcao);
+
+    // Solicita ao usuário o valor a ser convertido
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
 }
 
 void massa(){
