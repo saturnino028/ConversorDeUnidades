@@ -88,7 +88,7 @@ void energia(){
 
 void area(){
     int opcao;
-    double area;
+    float area;
 
     printf("\nEscolha uma das opcoes abaixo:\n");
     printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
@@ -98,7 +98,7 @@ void area(){
     scanf("%d", &opcao);
 
     printf("\nArea a ser convertida: ");
-    scanf("%lf", &area);
+    scanf("%f", &area);
 
     switch (opcao)
     {
