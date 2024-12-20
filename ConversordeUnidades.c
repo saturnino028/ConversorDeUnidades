@@ -65,7 +65,7 @@ int main(){
 
 void comprimento(){
     int opcao;
-    float valor;
+    float valor, resultado;
     // Menu de opções
     printf("*********************************\n");
     printf("* 1 - Metro para centimetro     *\n");
@@ -83,6 +83,37 @@ void comprimento(){
     // Solicita ao usuário o valor a ser convertido
     printf("Digite o valor a ser convertido: ");
     scanf("%f", &valor);
+
+    // Realiza a conversão com base na opção escolhida
+    switch (opcao) {
+        case 1:
+            resultado = valor * 100;  // Metro para Centímetro
+            printf("%.2f metros equivale a %.2f centimetros.\n", valor, resultado);
+            break;
+        case 2:
+            resultado = valor * 1000;  // Metro para Milímetro
+            printf("%.2f metros equivale a %.2f milimetros.\n", valor, resultado);
+            break;
+        case 3:
+            resultado = valor / 100;  // Centímetro para Metro
+            printf("%.2f centimetros equivale a %.2f metros.\n", valor, resultado);
+            break;
+        case 4:
+            resultado = valor * 10;  // Centímetro para Milímetro
+            printf("%.2f centimetros equivale a %.2f milimetros.\n", valor, resultado);
+            break;
+        case 5:
+            resultado = valor / 1000;  // Milímetro para Metro
+            printf("%.2f milimetros equivale a %.2f metros.\n", valor, resultado);
+            break;
+        case 6:
+            resultado = valor / 10;  // Milímetro para Centímetro
+            printf("%.2f milimetros equivale a %.2f centimetros.\n", valor, resultado);
+            break;
+        default:
+            printf("Opcao invalida\n");
+            break;
+    }
 }
 
 void massa(){
