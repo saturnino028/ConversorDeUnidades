@@ -82,88 +82,108 @@ int main() {
 void comprimento() {
 }
 
-void massa() {
+void massa(){
+
 }
 
-void volume() {
-    int opcao1, opcao2;
-    float valor;
+void volume(){
 
-    do {
-        printf("De qual medida quer converter?\n");
-        printf("1 para LITROS - L \n");
-        printf("2 para MILILITROS - ML\n");
-        printf("3 para METROS CUBICOS - M3\n");
-        printf("Digite a opcao: ");
-        if (scanf("%d", &opcao1) != 1) {
-            printf("Entrada invalida.\n");
-            return;
-        }
-        if (opcao1 < 1 || opcao1 > 3) {
-            printf("Opcao invalida! Tente novamente.\n");
-        }
-    } while (opcao1 < 1 || opcao1 > 3);
+}
 
-    do {
-        printf("Para qual medida quer converter?\n");
-        printf("1 para LITROS - L \n");
-        printf("2 para MILILITROS - ML\n");
-        printf("3 para METROS CUBICOS - M3\n");
-        printf("Digite a opcao: ");
-        if (scanf("%d", &opcao2) != 1) {
-            printf("Entrada invalida.\n");
-            return;
-        }
-        if (opcao2 < 1 || opcao2 > 3) {
-            printf("Opcao invalida! Tente novamente.\n");
-        }
-    } while (opcao2 < 1 || opcao2 > 3);
+void temperatura(){
+    int opcaoOrigem, opcaoDestino;
+    float temp;
+    printf ("\nConversor de temperatura\n");
+    printf ("Digite a temperatura:\n");
+    scanf ("%.2f", &temp);
 
-    if (opcao1 == opcao2) {
-        printf("As unidades selecionadas sao iguais. Nenhuma conversao necessaria.\n");
-        return;
+    printf ("Essa temperatura esta em qual unidade?\n");
+    printf ("1 - Celsius\n");
+    printf ("2 - Fahrenheit\n");
+    printf ("3 - Kelvin\n");
+    scanf ("%d", &opcaoOrigem);
+
+    printf ("Agora, escolha para qual tipo de temperatura voce deseja converter: \n");
+    printf ("1 - Celsius\n");
+    printf ("2 - Fahrenheit\n");
+    printf ("3 - Kelvin\n");
+    scanf ("%d", &opcaoDestino);
+
+    switch (opcaoOrigem)
+    {
+    case 1:
+        switch (opcaoDestino){
+            case 1: //Celsius para Celsius
+            printf("A conversao de Celsius para Celsius eh:\n %.2f\n", temp);
+            break;
+
+            case 2: //Celsius para Fahrenheit
+            temp = (temp * 1.8) + 32;
+            printf("A conversao de Celsius para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Celsius para Kelvin
+            temp = temp + 273.15;
+            printf("A conversao de Celsius para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+        break;
+
+    case 2:
+        switch (opcaoDestino){
+            case 1: //Fahrenheit para Celsius
+            temp = (temp - 32) * 5/9;
+            printf("A conversao de Fahrenheit para Celsius eh:\n %.2f\n", temp);
+
+            case 2: //Fahrenheit para Fahrenheit
+            printf("A conversao de Fahrenheit para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Fahrenheit para Kelvin
+            temp = (temp - 32) * 5/9 + 273.15;
+            printf("A conversao de Fahrenheit para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+    break;  
+
+    case 3:
+        switch (opcaoDestino){
+            case 1: //Kelvin para Celsius
+            temp = temp - 273.15;
+            printf("A conversao de Kelvin para Celsius eh:\n %.2f\n", temp);
+            break;
+
+            case 2: //Kelvin para Fahrenheit
+            temp = (temp - 273.15) * 1.8 + 32;
+            printf("A conversao de Kelvin para Fahrenheit eh:\n %.2f\n", temp);
+            break;
+
+            case 3: //Kelvin para Kelvin
+            printf("A conversao de Kelvin para Kelvin eh:\n %.2f\n", temp);
+            break;
+
+            default:
+            printf("Opçao invalida");
+            break;
+        }
+    break;
+    
+    default:
+        printf("Opçao invalida");
+        break;
     }
-
-    do {
-        printf("Digite o valor a ser convertido: ");
-        if (scanf("%f", &valor) != 1) {
-            printf("Entrada invalida.\n");
-            return;
-        }
-        if (valor < 0) {
-            printf("O valor nao pode ser negativo! Tente novamente.\n");
-        }
-    } while (valor < 0);
-
-    switch (opcao1) {
-        case 1:  // Litros
-            if (opcao2 == 2) { // Para mililitros
-                printf("%.2f L convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000);
-            } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f L convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000);
-            }
-            break;
-        case 2:  // Mililitros
-            if (opcao2 == 1) { // Para litros
-                printf("%.2f ML convertido para litros resulta em %.2f L\n", valor, valor / 1000);
-            } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f ML convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000000);
-            }
-            break;
-        case 3:  // Metros cúbicos
-            if (opcao2 == 1) { // Para litros
-                printf("%.2f M3 convertido para litros resulta em %.2f L\n", valor, valor * 1000);
-            } else if (opcao2 == 2) { // Para mililitros
-                printf("%.2f M3 convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000000);
-            }
-            break;
-    }
 }
 
-void temperatura() {
-}
+void velocidade(){
 
-void velocidade() {
 }
 
 void energia() {
