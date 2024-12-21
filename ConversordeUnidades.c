@@ -67,7 +67,86 @@ void comprimento(){
 }
 
 void massa(){
+    int opcaoOrigem, opcaoDestino;
+    double peso;
+    printf("\nConversor de massa\n");
+    printf("Digite o peso:\n");
+    scanf("%lf", &peso);
 
+    printf("Esse peso esta em qual unidade?\n");
+    printf("1 - Quilograma (kg)\n");
+    printf("2 - Grama (g)\n");
+    printf("3 - Tonelada (t)\n");
+    scanf("%d", &opcaoOrigem);
+
+    printf("Agora, escolha para qual tipo de unidade voce deseja converter:\n");
+    printf("1 - Quilograma (kg)\n");
+    printf("2 - Grama (g)\n");
+    printf("3 - Tonelada (t)\n");
+    scanf("%d", &opcaoDestino);
+
+    switch (opcaoOrigem) {
+        case 1: // Quilograma
+            switch (opcaoDestino) {
+                case 1: // Quilograma para Quilograma
+                    printf("A conversao de Quilograma(kg) para Quilograma(kg) eh:\n %.2f kg\n", peso);
+                    break;
+                case 2: // Quilograma para Grama
+                    peso = peso * 1000;
+                    printf("A conversao de Quilograma(kg) para Grama(g) eh:\n %.2f g\n", peso);
+                    break;
+                case 3: // Quilograma para Tonelada
+                    peso = peso / 1000;
+                    printf("A conversao de Quilograma(kg) para Tonelada(t) eh:\n %.2f t\n", peso);
+                    break;
+                default:
+                    printf("Opcao invalida\n");
+                    break;
+            }
+            break;
+
+        case 2: // Grama
+            switch (opcaoDestino) {
+                case 1: // Grama para Quilograma
+                    peso = peso / 1000;
+                    printf("A conversao de Grama(g) para Quilograma(kg) eh:\n %.2f kg\n", peso);
+                    break;
+                case 2: // Grama para Grama
+                    printf("A conversao de Grama(g) para Grama(g) eh:\n %.2f g\n", peso);
+                    break;
+                case 3: // Grama para Tonelada
+                    peso = peso / 1e6;
+                    printf("A conversao de Grama(g) para Tonelada(t) eh:\n %.4f t\n", peso);
+                    break;
+                default:
+                    printf("Opcao invalida\n");
+                    break;
+            }
+            break;
+
+        case 3: // Tonelada
+            switch (opcaoDestino) {
+                case 1: // Tonelada para Quilograma
+                    peso = peso * 1000;
+                    printf("A conversao de Tonelada(t) para Quilograma(kg) eh:\n %.2f kg\n", peso);
+                    break;
+                case 2: // Tonelada para Grama
+                    peso = peso * 1e6;
+                    printf("A conversao de Tonelada(t) para Grama(g) eh:\n %.2f g\n", peso);
+                    break;
+                case 3: // Tonelada para Tonelada
+                    printf("A conversao de Tonelada(t) para Tonelada(t) eh:\n %.2f t\n", peso);
+                    break;
+                default:
+                    printf("Opcao invalida\n");
+                    break;
+            }
+            break;
+
+        default:
+            printf("Opcao invalida\n");
+            break;
+    }
 }
 
 void volume(){
