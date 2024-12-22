@@ -3,7 +3,8 @@
 #include <stdbool.h>
 #include "Funcoes.h"
 
-int main(){
+int main()
+{
     int unidade;
     const char *Opcoes[] = {
         "1 - Armazenamento\n",
@@ -15,19 +16,19 @@ int main(){
         "7 - Tempo\n",
         "8 - Massa\n",
         "9 - Area\n",
-        "0 - Sair\n"
-        };
+        "0 - Sair\n"};
 
     printf("Ola, usuario!\n");
     printf("Qual conversao voce deseja fazer?\n");
 
-    for(int i = 0; i<10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         printf("%s", Opcoes[i]);
     }
 
     printf("Digite:\n");
     scanf("%d", &unidade);
-    
+
     switch (unidade)
     {
     case 1:
@@ -57,37 +58,38 @@ int main(){
     case 9:
         area();
         break;
-    
+
     default:
         break;
     }
 }
 
-void comprimento(){
-
+void comprimento()
+{
 }
 
-void massa(){
-
+void massa()
+{
 }
 
-void volume(){
-
+void volume()
+{
 }
 
-void temperatura(){
-
+void temperatura()
+{
 }
 
-void velocidade(){
-
+void velocidade()
+{
 }
 
-void energia(){
-
+void energia()
+{
 }
 
-void area(){
+void area()
+{
     int opcao;
     float area;
 
@@ -117,10 +119,46 @@ void area(){
     }
 }
 
-void tempo(){
+void tempo()
+{
+    float valorEntrada, valorSaida;
+    char unidadeEntrada, unidadeSaida;
 
+    printf("CONVERSOR DE TEMPO\n");
+    printf("Escolha a unidade de entrada:\ns - Segundo\nm - Minuto\nh - Hora\n");
+    scanf(" %c", &unidadeEntrada);
+
+    printf("Digite o valor em %c: ", unidadeEntrada);
+    scanf("%f", &valorEntrada);
+
+    printf("Escolha a unidade de saída:\ns - Segundo\nm - Minuto\nh - Hora\n");
+    scanf(" %c", &unidadeSaida);
+
+    if (unidadeEntrada == 'h')
+    {
+        valorEntrada *= 3600;
+    }
+    else if (unidadeEntrada == 'm')
+    {
+        valorEntrada *= 60;
+    }
+
+    if (unidadeSaida == 'h')
+    {
+        valorSaida = valorEntrada / 3600;
+    }
+    else if (unidadeSaida == 'm')
+    {
+        valorSaida = valorEntrada / 60;
+    }
+    else
+    {
+        valorSaida = valorEntrada;
+    }
+
+    printf("Tempo convertido: %.2f %c\n", valorSaida, unidadeSaida);
 }
 
-void armazenamento(){
-
+void armazenamento()
+{
 }
