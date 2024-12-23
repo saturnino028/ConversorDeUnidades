@@ -2,10 +2,12 @@
 #include <string.h>
 #include <stdbool.h>
 #include "Funcoes.h"
+#include <stdlib.h>
 
 int main()
 {
     int unidade;
+
     const char *Opcoes[] = {
         "1 - Armazenamento\n",
         "2 - Temperatura\n",
@@ -18,147 +20,120 @@ int main()
         "9 - Area\n",
         "0 - Sair\n"};
 
-    printf("Ola, usuario!\n");
-    printf("Qual conversao voce deseja fazer?\n");
-
-    for (int i = 0; i < 10; i++)
+    do
     {
-        printf("%s", Opcoes[i]);
+        system("cls");
+        printf("Ola, usuario!\n");
+        printf("Qual conversao voce deseja fazer?\n");
+
+        for (int i = 0; i < 10; i++)
+        {
+            printf("%s", Opcoes[i]);
+        }
+
+        printf("Digite:\n");
+        scanf("%d", &unidade);
+
+        switch (unidade)
+        {
+        case 1:
+            armazenamento();
+            break;
+        case 2:
+            temperatura();
+            break;
+        case 3:
+            comprimento();
+            break;
+        case 4:
+            velocidade();
+            break;
+        case 5:
+            energia();
+            break;
+        case 6:
+            volume();
+            break;
+        case 7:
+            tempo();
+            break;
+        case 8:
+            massa();
+            break;
+        case 9:
+            area();
+            break;
+
+        default:
+            break;
+        }
+        while (continuar)
+            ;
+
+        printf("\nPrograma encerado!\n");
+
+        return 0;
     }
 
-    printf("Digite:\n");
-    scanf("%d", &unidade);
-
-    switch (unidade)
+    void comprimento()
     {
-    case 1:
-        armazenamento();
-        break;
-    case 2:
-        temperatura();
-        break;
-    case 3:
-        comprimento();
-        break;
-    case 4:
-        velocidade();
-        break;
-    case 5:
-        energia();
-        break;
-    case 6:
-        volume();
-        break;
-    case 7:
-        tempo();
-        break;
-    case 8:
-        massa();
-        break;
-    case 9:
-        area();
-        break;
-
-    default:
-        break;
-    }
-}
-
-void comprimento()
-{
-}
-
-void massa()
-{
-}
-
-void volume()
-{
-}
-
-void temperatura()
-{
-}
-
-void velocidade()
-{
-}
-
-void energia()
-{
-}
-
-void area()
-{
-    int opcao;
-    float area;
-
-    printf("\nEscolha uma das opcoes abaixo:\n");
-    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
-    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
-
-    printf("Opcao: ");
-    scanf("%d", &opcao);
-
-    printf("\nArea a ser convertida: ");
-    scanf("%f", &area);
-
-    switch (opcao)
-    {
-    case 1:
-        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
-        break;
-
-    case 2:
-        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
-        break;
-
-    default:
-        printf("\nOpcao invalida.\n");
-        break;
-    }
-}
-
-void tempo()
-{
-    float valorEntrada, valorSaida;
-    char unidadeEntrada, unidadeSaida;
-
-    printf("CONVERSOR DE TEMPO\n");
-    printf("Escolha a unidade de entrada:\ns - Segundo\nm - Minuto\nh - Hora\n");
-    scanf(" %c", &unidadeEntrada);
-
-    printf("Digite o valor em %c: ", unidadeEntrada);
-    scanf("%f", &valorEntrada);
-
-    printf("Escolha a unidade de saída:\ns - Segundo\nm - Minuto\nh - Hora\n");
-    scanf(" %c", &unidadeSaida);
-
-    if (unidadeEntrada == 'h')
-    {
-        valorEntrada *= 3600;
-    }
-    else if (unidadeEntrada == 'm')
-    {
-        valorEntrada *= 60;
     }
 
-    if (unidadeSaida == 'h')
+    void massa()
     {
-        valorSaida = valorEntrada / 3600;
-    }
-    else if (unidadeSaida == 'm')
-    {
-        valorSaida = valorEntrada / 60;
-    }
-    else
-    {
-        valorSaida = valorEntrada;
     }
 
-    printf("Tempo convertido: %.2f %c\n", valorSaida, unidadeSaida);
-}
+    void volume()
+    {
+    }
 
-void armazenamento()
-{
-}
+    void temperatura()
+    {
+    }
+
+    void velocidade()
+    {
+    }
+
+    void energia()
+    {
+    }
+
+    void area()
+    {
+        int opcao;
+        float area;
+
+        printf("\nEscolha uma das opcoes abaixo:\n");
+        printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
+        printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+
+        printf("Opcao: ");
+        scanf("%d", &opcao);
+
+        printf("\nArea a ser convertida: ");
+        scanf("%f", &area);
+
+        switch (opcao)
+        {
+        case 1:
+            printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+            break;
+
+        case 2:
+            printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+            break;
+
+        default:
+            printf("\nOpcao invalida.\n");
+            break;
+        }
+    }
+
+    void tempo()
+    {
+    }
+
+    void armazenamento()
+    {
+    }
