@@ -136,8 +136,80 @@ void massa(){
 
 }
 
-void volume(){
 
+void volume() {
+    int opcao1, opcao2;
+    float valor;
+
+    do {
+        printf("De qual medida quer converter?\n");
+        printf("1 para LITROS - L \n");
+        printf("2 para MILILITROS - ML\n");
+        printf("3 para METROS CUBICOS - M3\n");
+        printf("Digite a opcao: ");
+        if (scanf("%d", &opcao1) != 1) {
+            printf("Entrada invalida.\n");
+            return;
+        }
+        if (opcao1 < 1 || opcao1 > 3) {
+            printf("Opcao invalida! Tente novamente.\n");
+        }
+    } while (opcao1 < 1 || opcao1 > 3);
+
+    do {
+        printf("Para qual medida quer converter?\n");
+        printf("1 para LITROS - L \n");
+        printf("2 para MILILITROS - ML\n");
+        printf("3 para METROS CUBICOS - M3\n");
+        printf("Digite a opcao: ");
+        if (scanf("%d", &opcao2) != 1) {
+            printf("Entrada invalida.\n");
+            return;
+        }
+        if (opcao2 < 1 || opcao2 > 3) {
+            printf("Opcao invalida! Tente novamente.\n");
+        }
+    } while (opcao2 < 1 || opcao2 > 3);
+
+    if (opcao1 == opcao2) {
+        printf("As unidades selecionadas sao iguais. Nenhuma conversao necessaria.\n");
+        return;
+    }
+
+    do {
+        printf("Digite o valor a ser convertido: ");
+        if (scanf("%f", &valor) != 1) {
+            printf("Entrada invalida.\n");
+            return;
+        }
+        if (valor < 0) {
+            printf("O valor nao pode ser negativo! Tente novamente.\n");
+        }
+    } while (valor < 0);
+
+    switch (opcao1) {
+        case 1:  // Litros
+            if (opcao2 == 2) { // Para mililitros
+                printf("%.2f L convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000);
+            } else if (opcao2 == 3) { // Para metros cúbicos
+                printf("%.2f L convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000);
+            }
+            break;
+        case 2:  // Mililitros
+            if (opcao2 == 1) { // Para litros
+                printf("%.2f ML convertido para litros resulta em %.2f L\n", valor, valor / 1000);
+            } else if (opcao2 == 3) { // Para metros cúbicos
+                printf("%.2f ML convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000000);
+            }
+            break;
+        case 3:  // Metros cúbicos
+            if (opcao2 == 1) { // Para litros
+                printf("%.2f M3 convertido para litros resulta em %.2f L\n", valor, valor * 1000);
+            } else if (opcao2 == 2) { // Para mililitros
+                printf("%.2f M3 convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000000);
+            }
+            break;
+    }
 }
 
 void temperatura(){
@@ -269,7 +341,46 @@ void area(){
     }
 }
 
-void tempo() {
+void tempo()
+{
+    float valorEntrada, valorSaida;
+    char unidadeEntrada, unidadeSaida;
+
+    printf("CONVERSOR DE TEMPO\n");
+    printf("Escolha a unidade de entrada:\ns - Segundo\nm - Minuto\nh - Hora\n");
+    scanf(" %c", &unidadeEntrada);
+
+    printf("Digite o valor em %c: ", unidadeEntrada);
+    scanf("%f", &valorEntrada);
+
+    printf("Escolha a unidade de saída:\ns - Segundo\nm - Minuto\nh - Hora\n");
+    scanf(" %c", &unidadeSaida);
+
+    // Converter a entrada para segundos
+    if (unidadeEntrada == 'h')
+    {
+        valorEntrada *= 3600;
+    }
+    else if (unidadeEntrada == 'm')
+    {
+        valorEntrada *= 60;
+    }
+
+    // Converter de segundos para a unidade de saída
+    if (unidadeSaida == 'h')
+    {
+        valorSaida = valorEntrada / 3600;
+    }
+    else if (unidadeSaida == 'm')
+    {
+        valorSaida = valorEntrada / 60;
+    }
+    else
+    {
+        valorSaida = valorEntrada;
+    }
+
+    printf("Tempo convertido: %.2f %c\n", valorSaida, unidadeSaida);
 }
 
 void armazenamento() {
