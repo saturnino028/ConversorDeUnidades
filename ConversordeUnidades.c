@@ -79,7 +79,6 @@ int main() {
     return 0;
 }
 
-<<<<<<< HEAD
 void comprimento(){
     int opcao;
     float valor, resultado;
@@ -131,9 +130,6 @@ void comprimento(){
             printf("Opcao invalida\n");
             break;
     }
-=======
-void comprimento() {
->>>>>>> main
 }
 
 void massa(){
