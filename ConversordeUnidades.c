@@ -132,12 +132,6 @@ void comprimento(){
     }
 }
 
-void massa(){
-
-}
-
-<<<<<<< HEAD
-
 void volume() {
     int opcao1, opcao2;
     float valor;
@@ -211,14 +205,13 @@ void volume() {
             }
             break;
     }
-=======
-<<<<<<< HEAD
+
 void massa(){
     int opcaoOrigem, opcaoDestino;
-    double peso;
+    float peso;
     printf("\nConversor de massa\n");
     printf("Digite o peso:\n");
-    scanf("%lf", &peso);
+    scanf("%f", &peso);
 
     printf("Esse peso esta em qual unidade?\n");
     printf("1 - Quilograma (kg)\n");
@@ -294,12 +287,6 @@ void massa(){
             printf("Opcao invalida\n");
             break;
     }
-=======
-void massa()
-{
->>>>>>> main
->>>>>>> 2b4369d6e7cffc7677bc0194de80bd532f28d964
-}
 
 void temperatura(){
     int opcaoOrigem, opcaoDestino;
