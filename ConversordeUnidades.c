@@ -3,12 +3,14 @@
 #include <stdbool.h>
 #include "Funcoes.h"
 #include <stdlib.h>
+#include <math.h>
 
 int main() {
     int continuar;
     int unidade;
     
-    const char *Opcoes[] = {
+    const char *Opcoes[] = 
+    {
         "1 - Armazenamento\n",
         "2 - Temperatura\n",
         "3 - Comprimento\n",
@@ -19,7 +21,7 @@ int main() {
         "8 - Massa\n",
         "9 - Area\n",
         "0 - Sair\n"
-        };
+    };
 
     do{
         system("cls");
@@ -79,10 +81,65 @@ int main() {
     return 0;
 }
 
-void armazenamento() {
+void armazenamento() 
+{
+    float valor;
+    int unidade;
+    float bits, bytes, kb, mb, gb, tb;
+
+    // Coleta de dados do usuário
+    printf("Escolha a unidade inicial:\n");
+    printf("1. Bits\n2. Bytes\n3. Kilobytes (KB)\n4. Megabytes (MB)\n5. Gigabytes (GB)\n6. Terabytes (TB)\n");
+    printf("Digite a unidade (1-6): ");
+    scanf("%d", &unidade);
+
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
+
+    // Switch para escolher a unidade de origem
+    switch (unidade) {
+        case 1: // Bits
+            bits = valor;
+            break;
+        case 2: // Bytes
+            bits = valor * 8;
+            break;
+        case 3: // Kilobytes (KB)
+            bits = valor * 8 * 1024;
+            break;
+        case 4: // Megabytes (MB)
+            bits = valor * 8 * pow(1024, 2);
+            break;
+        case 5: // Gigabytes (GB)
+            bits = valor * 8 * pow(1024, 3);
+            break;
+        case 6: // Terabytes (TB)
+            bits = valor * 8 * pow(1024, 4);
+            break;
+        default:
+            printf("\nUnidade invalida!\n");
+            return;
+    }
+
+    // Realizando as conversões para outras unidades
+    bytes = bits / 8;
+    kb = bytes / 1024;
+    mb = kb / 1024;
+    gb = mb / 1024;
+    tb = gb / 1024;
+
+    // Exibindo os resultados
+    printf("\n--- Valores convertidos:\n");
+    printf("Bits: %.2f\n", bits);
+    printf("Bytes: %.2f\n", bytes);
+    printf("Kilobytes (KB): %.2f\n", kb);
+    printf("Megabytes (MB): %.2f\n", mb);
+    printf("Gigabytes (GB): %.2f\n", gb);
+    printf("Terabytes (TB): %.2f\n", tb);
 }
 
-void temperatura(){
+void temperatura()
+{
     int opcaoOrigem, opcaoDestino;
     float temp;
     printf ("\nConversor de temperatura\n");
@@ -177,6 +234,11 @@ void temperatura(){
 void comprimento(){
     int opcao;
     float valor, resultado;
+
+    // Solicita ao usuário o valor a ser convertido
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
+
     // Menu de opções
     printf("*********************************\n");
     printf("* 1 - Metro para centimetro     *\n");
@@ -190,10 +252,6 @@ void comprimento(){
     // Solicita ao usuário para escolher a opção
     printf("\nEscolha a opcao desejada: ");
     scanf("%d", &opcao);
-
-    // Solicita ao usuário o valor a ser convertido
-    printf("Digite o valor a ser convertido: ");
-    scanf("%f", &valor);
 
     // Realiza a conversão com base na opção escolhida
     switch (opcao) {
@@ -231,7 +289,6 @@ void velocidade(){
 
 }
 
-
 void energia() {
 
      int unidade;
@@ -268,7 +325,6 @@ void energia() {
             printf("Unidade inválida!\n");
         }
 }
-    
 
 void volume() {
     int opcao1, opcao2;
@@ -325,14 +381,14 @@ void volume() {
             if (opcao2 == 2) { // Para mililitros
                 printf("%.2f L convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f L convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000);
+                printf("%.2f L convertido para metros cubicos resulta em %.2f M3\n", valor, valor / 1000);
             }
             break;
         case 2:  // Mililitros
             if (opcao2 == 1) { // Para litros
                 printf("%.2f ML convertido para litros resulta em %.2f L\n", valor, valor / 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f ML convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000000);
+                printf("%.2f ML convertido para metros cubicos resulta em %.2f M3\n", valor, valor / 1000000);
             }
             break;
         case 3:  // Metros cúbicos
@@ -344,7 +400,6 @@ void volume() {
             break;
     }
 }
-
 
 void tempo()
 {
@@ -476,8 +531,8 @@ void area(){
     float area;
 
     printf("\nEscolha uma das opcoes abaixo:\n");
-    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
-    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+    printf("1 - Centimetro Quadrado (cm2) > Metro Quadrado (m2)\n");
+    printf("2 - Metro Quadrado (m2) > Centimetro Quadrado (cm2)\n");
 
     printf("Opcao: ");
     scanf("%d", &opcao);
@@ -488,11 +543,11 @@ void area(){
     switch (opcao)
     {
     case 1:
-        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+        printf("\nA area %.2f cm2 equivale a %.2f m2.\n", area, area / 10000);
         break;
 
     case 2:
-        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+        printf("\nA area %.2f m2 equivale a %.2f cm2.\n", area, area * 10000);
         break;
 
     default:
@@ -500,3 +555,4 @@ void area(){
         break;
     }
 }
+
