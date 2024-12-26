@@ -4,7 +4,7 @@
 void converter(double valor, int unidade) {
     double bits, bytes, kb, mb, gb, tb;
 
-    switch (unidade) {
+    switch (unidade) { //Escolher a unidade do valor inserido
         case 1: // Bits
             bits = valor;
             break;
