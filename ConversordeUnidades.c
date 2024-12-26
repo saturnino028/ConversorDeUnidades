@@ -286,47 +286,83 @@ void comprimento(){
 }
 
 void velocidade(){
+    float valor;
+    int opcaoOrigem, opcaoDestino;
+    printf("Conversor de Unidades de Velocidade\n");
 
+    printf("Digite o valor da velocidade: ");
+    scanf("%f", &valor);
+
+    printf("Escolha a unidade de origem (1-3): \n");
+    printf("1. km/h (quilometros por hora)\n");
+    printf("2. m/s (metros por segundo)\n");
+    printf("3. mph (milhas por hora)\n");
+    scanf("%d", &opcaoOrigem);
+
+    printf("Escolha a unidade de destino (1-3): \n");
+    printf("1. km/h (quilometros por hora)\n");
+    printf("2. m/s (metros por segundo)\n");
+    printf("3. mph (milhas por hora)\n");
+    scanf("%d", &opcaoDestino);
+
+    if (opcaoOrigem == 1 && opcaoDestino == 2) 
+        valor = valor / 3.6; // km/h -> m/s
+    else if (opcaoOrigem == 1 && opcaoDestino == 3)
+        valor = valor / 1.609; // km/h -> mph
+    else if (opcaoOrigem == 2 && opcaoDestino == 1)
+        valor = valor * 3.6; // m/s -> km/h
+    else if (opcaoOrigem == 2 && opcaoDestino == 3)
+        valor = (valor * 3.6) / 1.609; // m/s -> mph
+    else if (opcaoOrigem == 3 && opcaoDestino == 1)
+        valor = valor * 1.609; // mph -> km/h
+    else if (opcaoOrigem == 3 && opcaoDestino == 2)
+        valor = (valor * 1.609) / 3.6; // mph -> m/s
+    else if (opcaoOrigem == opcaoDestino)
+        valor = valor; // Mesma unidade
+    else {
+        printf("Opçao invalida!\n");
+        return;
+    }
+
+    printf("Resultado: %.2f\n", valor);
 }
 
 void energia() {
-<<<<<<< HEAD
-=======
-
->>>>>>> 536b78abcd8426fbd797327e9ccd1d97ef34c4d6
-     int unidade;
-     float valor;
+    int unidade;
+    float valor;
      
+    printf("|Escolha o tipo de unidade:|\n");
+    printf("|1 - W                     |\n");
+    printf("|2 - KW                    | \n");
+    printf("|3 - CV                    | \n");
+    scanf("%d", &unidade);
 
-        printf("|Escolha o tipo de unidade:|\n");
-        printf("|1 - W                     |\n");
-        printf("|2 - KW                    | \n");
-        printf("|3 - CV                    | \n");
-        scanf("%d", &unidade);
-
-        printf("Digite o valor a ser convertido: ");
-        scanf("%f", &valor);
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
        
 
 
-        if (unidade == 1) {
-            printf("Conversao de Watts para Quilowatts: \n");
-            printf("%.2f W = %.2f kW\n \n", valor, (valor / 1000));
-            printf("Conversao de Watts para Cavalos-Vapor: \n");
-            printf("%.2f W = %.2f cv\n \n", valor, (valor / 735.5));
-        } else if (unidade == 2) {
-            printf("Conversao de Quilowatts para Watts: \n");
-            printf("%.2f kW = %.2f W\n \n", valor, (valor * 1000));
-            printf("Conversao de QuiloWatts para Cavalos-Vapor: \n");
-            printf("%.2f kW = %.2f cv\n \n", valor, (valor * 1.36));
-        } else if (unidade == 3) {
-            printf("Conversao de Cavalos-Vapor para Watts: \n");
-            printf("%.2f cv = %.2f W\n \n", valor, (valor * 735.5));
-            printf("Conversao de Cavalos-vapor para QuiloWatts: \n");
-            printf("%.2f cv = %.2f kW\n \n", valor, (valor / 1.36));
-        } else {
-            printf("Unidade inválida!\n");
-        }
+    if (unidade == 1) {
+        printf("Conversao de Watts para Quilowatts: \n");
+        printf("%.2f W = %.2f kW\n \n", valor, (valor / 1000));
+        printf("Conversao de Watts para Cavalos-Vapor: \n");
+        printf("%.2f W = %.2f cv\n \n", valor, (valor / 735.5));
+    } 
+    else if (unidade == 2) {
+        printf("Conversao de Quilowatts para Watts: \n");
+        printf("%.2f kW = %.2f W\n \n", valor, (valor * 1000));
+        printf("Conversao de QuiloWatts para Cavalos-Vapor: \n");
+        printf("%.2f kW = %.2f cv\n \n", valor, (valor * 1.36));
+    } 
+    else if (unidade == 3) {
+        printf("Conversao de Cavalos-Vapor para Watts: \n");
+        printf("%.2f cv = %.2f W\n \n", valor, (valor * 735.5));
+        printf("Conversao de Cavalos-vapor para QuiloWatts: \n");
+        printf("%.2f cv = %.2f kW\n \n", valor, (valor / 1.36));
+    } 
+    else {
+        printf("Unidade inválida!\n");
+    }
 }
 
 void volume() {
