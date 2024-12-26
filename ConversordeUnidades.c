@@ -440,8 +440,8 @@ void area(){
     float area;
 
     printf("\nEscolha uma das opcoes abaixo:\n");
-    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
-    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+    printf("1 - Centimetro Quadrado (cm2) > Metro Quadrado (m2)\n");
+    printf("2 - Metro Quadrado (m2) > Centimetro Quadrado (cm2)\n");
 
     printf("Opcao: ");
     scanf("%d", &opcao);
@@ -452,11 +452,11 @@ void area(){
     switch (opcao)
     {
     case 1:
-        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+        printf("\nA area %lf cm2 equivale a %lf m2.\n", area, area / 10000);
         break;
 
     case 2:
-        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+        printf("\nA area %lf m2 equivale a %lf cm2.\n", area, area * 10000);
         break;
 
     default:
