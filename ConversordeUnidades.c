@@ -1,8 +1,10 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <string.h>
 #include <stdbool.h>
 #include "Funcoes.h"
 #include <stdlib.h>
+#include <math.h>
 
 int main() {
     int continuar;
@@ -443,8 +445,8 @@ void area(){
     float area;
 
     printf("\nEscolha uma das opcoes abaixo:\n");
-    printf("1 - Centimetro Quadrado (cm²) > Metro Quadrado (m²)\n");
-    printf("2 - Metro Quadrado (m²) > Centimetro Quadrado (cm²)\n");
+    printf("1 - Centimetro Quadrado (cm2) > Metro Quadrado (m2)\n");
+    printf("2 - Metro Quadrado (m2) > Centimetro Quadrado (cm2)\n");
 
     printf("Opcao: ");
     scanf("%d", &opcao);
@@ -455,11 +457,11 @@ void area(){
     switch (opcao)
     {
     case 1:
-        printf("\nA area %lf cm² equivale a %lf m².\n", area, area / 10000);
+        printf("\nA area %lf cm2 equivale a %lf m2.\n", area, area / 10000);
         break;
 
     case 2:
-        printf("\nA area %lf m² equivale a %lf cm².\n", area, area * 10000);
+        printf("\nA area %lf m2 equivale a %lf cm2.\n", area, area * 10000);
         break;
 
     default:
@@ -467,3 +469,60 @@ void area(){
         break;
     }
 }
+
+void armazenamento() {
+    double valor;
+    int unidade;
+    double bits, bytes, kb, mb, gb, tb;
+
+    // Coleta de dados do usuário
+    printf("Escolha a unidade inicial:\n");
+    printf("1. Bits\n2. Bytes\n3. Kilobytes (KB)\n4. Megabytes (MB)\n5. Gigabytes (GB)\n6. Terabytes (TB)\n");
+    printf("Digite a unidade (1-6): ");
+    scanf("%d", &unidade);
+
+    printf("Digite o valor a ser convertido: ");
+    scanf("%lf", &valor);
+
+    // Switch para escolher a unidade de origem
+    switch (unidade) {
+        case 1: // Bits
+            bits = valor;
+            break;
+        case 2: // Bytes
+            bits = valor * 8;
+            break;
+        case 3: // Kilobytes (KB)
+            bits = valor * 8 * 1024;
+            break;
+        case 4: // Megabytes (MB)
+            bits = valor * 8 * pow(1024, 2);
+            break;
+        case 5: // Gigabytes (GB)
+            bits = valor * 8 * pow(1024, 3);
+            break;
+        case 6: // Terabytes (TB)
+            bits = valor * 8 * pow(1024, 4);
+            break;
+        default:
+            printf("\nUnidade invalida!\n");
+            return;
+    }
+
+    // Realizando as conversões para outras unidades
+    bytes = bits / 8;
+    kb = bytes / 1024;
+    mb = kb / 1024;
+    gb = mb / 1024;
+    tb = gb / 1024;
+
+    // Exibindo os resultados
+    printf("\n--- Valores convertidos:\n");
+    printf("Bits: %.2lf\n", bits);
+    printf("Bytes: %.2lf\n", bytes);
+    printf("Kilobytes (KB): %.2lf\n", kb);
+    printf("Megabytes (MB): %.2lf\n", mb);
+    printf("Gigabytes (GB): %.2lf\n", gb);
+    printf("Terabytes (TB): %.2lf\n", tb);
+}
+
