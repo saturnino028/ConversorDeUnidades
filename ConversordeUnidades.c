@@ -8,7 +8,8 @@ int main() {
     int continuar;
     int unidade;
     
-    const char *Opcoes[] = {
+    const char *Opcoes[] = 
+    {
         "1 - Armazenamento\n",
         "2 - Temperatura\n",
         "3 - Comprimento\n",
@@ -19,7 +20,7 @@ int main() {
         "8 - Massa\n",
         "9 - Area\n",
         "0 - Sair\n"
-        };
+    };
 
     do{
         system("cls");
@@ -79,15 +80,17 @@ int main() {
     return 0;
 }
 
-void armazenamento() {
+void armazenamento() 
+{
 }
 
-void temperatura(){
+void temperatura()
+{
     int opcaoOrigem, opcaoDestino;
     float temp;
     printf ("\nConversor de temperatura\n");
     printf ("Digite a temperatura:\n");
-    scanf ("%.2f", &temp);
+    scanf ("%f", &temp);
 
     printf ("Essa temperatura esta em qual unidade?\n");
     printf ("1 - Celsius\n");
@@ -177,6 +180,11 @@ void temperatura(){
 void comprimento(){
     int opcao;
     float valor, resultado;
+
+    // Solicita ao usuário o valor a ser convertido
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
+
     // Menu de opções
     printf("*********************************\n");
     printf("* 1 - Metro para centimetro     *\n");
@@ -190,10 +198,6 @@ void comprimento(){
     // Solicita ao usuário para escolher a opção
     printf("\nEscolha a opcao desejada: ");
     scanf("%d", &opcao);
-
-    // Solicita ao usuário o valor a ser convertido
-    printf("Digite o valor a ser convertido: ");
-    scanf("%f", &valor);
 
     // Realiza a conversão com base na opção escolhida
     switch (opcao) {
@@ -289,14 +293,14 @@ void volume() {
             if (opcao2 == 2) { // Para mililitros
                 printf("%.2f L convertido para mililitros resulta em %.2f ML\n", valor, valor * 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f L convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000);
+                printf("%.2f L convertido para metros cubicos resulta em %.2f M3\n", valor, valor / 1000);
             }
             break;
         case 2:  // Mililitros
             if (opcao2 == 1) { // Para litros
                 printf("%.2f ML convertido para litros resulta em %.2f L\n", valor, valor / 1000);
             } else if (opcao2 == 3) { // Para metros cúbicos
-                printf("%.2f ML convertido para metros cúbicos resulta em %.2f M3\n", valor, valor / 1000000);
+                printf("%.2f ML convertido para metros cubicos resulta em %.2f M3\n", valor, valor / 1000000);
             }
             break;
         case 3:  // Metros cúbicos
@@ -308,7 +312,6 @@ void volume() {
             break;
     }
 }
-
 
 void tempo()
 {
