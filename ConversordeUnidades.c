@@ -290,6 +290,10 @@ void velocidade(){
 }
 
 void energia() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 536b78abcd8426fbd797327e9ccd1d97ef34c4d6
      int unidade;
      float valor;
      
