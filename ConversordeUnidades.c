@@ -466,6 +466,7 @@ void area(){
         break;
     }
 }
+
 void armazenamento() {
     double valor;
     int unidade;
