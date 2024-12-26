@@ -162,7 +162,75 @@ void temperatura() {
 }
 
 void velocidade() {
+    int opcao1, opcao2;
+    float valor;
+
+    do {
+        printf("De qual unidade de velocidade quer converter?\n");
+        printf("1 para Km/h\n");
+        printf("2 para m/s\n");
+        printf("3 para mph\n");
+        printf("Digite a opcao: ");
+        if (scanf("%d", &opcao1) != 1) {
+            printf("Entrada invalida.\n");
+            return;
+        }
+        if (opcao1 < 1 || opcao1 > 3) {
+            printf("Opcao invalida! Tente novamente.\n");
+        }
+    } while (opcao1 < 1 || opcao1 > 3);
+
+    do {
+        printf("Para qual unidade de velocidade quer converter?\n");
+        printf("1 para Km/h\n");
+        printf("2 para m/s\n");
+        printf("3 para mph\n");
+        printf("Digite a opcao: ");
+        if (scanf("%d", &opcao2) != 1) {
+            printf("Entrada invalida.\n");
+            return;
+        }
+        if (opcao2 < 1 || opcao2 > 3) {
+            printf("Opcao invalida! Tente novamente.\n");
+        }
+    } while (opcao2 < 1 || opcao2 > 3);
+
+    if (opcao1 == opcao2) {
+        printf("As unidades selecionadas são iguais. Nenhuma conversao necessaria.\n");
+        return;
+    }
+
+    printf("Digite o valor a ser convertido: ");
+    if (scanf("%f", &valor) != 1) {
+        printf("Entrada invalida.\n");
+        return;
+    }
+
+    switch (opcao1) {
+        case 1:  // Km/h
+            if (opcao2 == 2) { // Para m/s
+                printf("%.2f Km/h convertido para m/s resulta em %.2f m/s\n", valor, valor / 3.6);
+            } else if (opcao2 == 3) { // Para mph
+                printf("%.2f Km/h convertido para mph resulta em %.2f mph\n", valor, valor / 1.60934);
+            }
+            break;
+        case 2:  // m/s
+            if (opcao2 == 1) { // Para Km/h
+                printf("%.2f m/s convertido para Km/h resulta em %.2f Km/h\n", valor, valor * 3.6);
+            } else if (opcao2 == 3) { // Para mph
+                printf("%.2f m/s convertido para mph resulta em %.2f mph\n", valor, valor * 2.23694);
+            }
+            break;
+        case 3:  // mph
+            if (opcao2 == 1) { // Para Km/h
+                printf("%.2f mph convertido para Km/h resulta em %.2f Km/h\n", valor, valor * 1.60934);
+            } else if (opcao2 == 2) { // Para m/s
+                printf("%.2f mph convertido para m/s resulta em %.2f m/s\n", valor, valor / 2.23694);
+            }
+            break;
+    }
 }
+
 
 void energia() {
 }
